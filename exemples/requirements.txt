@@ -1,0 +1,6 @@
+requests>=2.28
+python-dotenv>=1.0
+# Facultatif : graphiques privés (07-graphiques/graphique_prive.py)
+matplotlib>=3.7
+# Facultatif : export Excel (08-fichiers/fichiers.py)
+openpyxl>=3.1
