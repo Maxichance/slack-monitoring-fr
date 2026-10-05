@@ -38,6 +38,7 @@ On passe un champ `blocks` (liste JSON) à `chat.postMessage`. Gardez toujours u
 | `markdown` | Markdown standard (`**gras**`, liens, listes), pratique pour du texte généré |
 | `image` | Graphique ou capture (voir section 3) |
 | `button` avec `url` | Bouton qui ouvre un lien. Sans interactivité configurée sur l'application, Slack peut afficher un avertissement au clic |
+| `static_select` | Menu déroulant. Il s'affiche sans configuration, mais choisir une option nécessite l'interactivité et un serveur (voir section 7), sinon Slack signale une erreur |
 
 Limites : 50 blocs par message, 3 000 caractères par bloc de texte.
 

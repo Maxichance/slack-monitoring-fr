@@ -50,7 +50,7 @@ pip install -r exemples/requirements.txt
 python exemples/01-premier-message/premier_message.py
 ```
 
-Le pas à pas complet, avec le dépannage, est dans [docs/installation.md](docs/installation.md).
+Le pas à pas complet, avec le dépannage, est dans [docs/installation.md](docs/installation.md). Pour un notebook BigQuery (installation des librairies, jeton dans Secret Manager, planification), voir [docs/bigquery.md](docs/bigquery.md).
 
 ## Intégration par un agent IA
 
@@ -66,6 +66,7 @@ Le pas à pas complet, avec le dépannage, est dans [docs/installation.md](docs/
 ├── .env.example                 modèle de configuration, à copier en .env
 ├── docs/
 │   ├── installation.md          bot, .env, ID du canal, test, dépannage
+│   ├── bigquery.md              utilisation depuis un notebook BigQuery
 │   ├── prompt-agent-ia.md       les deux prompts pour agent IA
 │   └── possibilites-slack.md    possibilités de Slack, librairies, droits
 └── exemples/

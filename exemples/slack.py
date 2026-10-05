@@ -4,7 +4,8 @@ Une seule dépendance HTTP (requests), aucun SDK Slack. Copiez ce fichier dans v
 projet : il suffit pour envoyer, modifier, programmer et supprimer des messages, et
 pour joindre des fichiers.
 
-Configuration lue dans le fichier .env (voir .env.example à la racine du dépôt) :
+Configuration lue dans les variables d'environnement, ou dans un fichier .env si
+python-dotenv est installé (voir .env.example à la racine du dépôt) :
     SLACK_BOT_TOKEN, SLACK_CHANNEL_ID, SLACK_WORKSPACE_URL, SLACK_ENABLED
 
 Une erreur Slack ne fait jamais planter le programme : elle est affichée dans la
@@ -15,10 +16,16 @@ import time
 from pathlib import Path
 
 import requests
-from dotenv import load_dotenv
 
-load_dotenv(Path(__file__).resolve().parent.parent / ".env")  # .env à la racine du dépôt
-load_dotenv()  # sinon, .env du dossier courant
+try:
+    from dotenv import load_dotenv
+except ImportError:  # notebook, CI… : les variables d'environnement suffisent
+    load_dotenv = None
+
+if load_dotenv:
+    if "__file__" in globals():  # absent quand le code est collé dans une cellule de notebook
+        load_dotenv(Path(__file__).resolve().parent.parent / ".env")  # .env à la racine du dépôt
+    load_dotenv()  # .env du dossier courant
 
 API = "https://slack.com/api/"
 TOKEN = os.getenv("SLACK_BOT_TOKEN", "").strip()
